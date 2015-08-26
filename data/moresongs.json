@@ -1,0 +1,28 @@
+{
+  "songs": [
+    {
+      "title": "Chaos A.D.",
+      "artist": "Sepultura",
+      "album": "Chaos A.D.",
+      "genre": "Metal"
+    },
+    {
+      "title": "Green Jelly Sucks",
+      "artist": "Green Jelly",
+      "album": "Cereal Killer Soundtrack",
+      "genre": "Rock"
+    },
+    {
+      "title": "Asleep On A Train",
+      "artist": "múm",
+      "album": "Yesterday Was Dramatic - Today is OK",
+      "genre": "Electronic"
+    },
+    {
+      "title": "Refuse/Resist",
+      "artist": "Sepultura",
+      "album": "Arise",
+      "genre": "Metal"
+    }
+  ]
+}
