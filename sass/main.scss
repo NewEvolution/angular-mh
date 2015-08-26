@@ -1,0 +1,179 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+$accent-color: #009090; // change @input-border-focus in bower_components/bootstrap/less/variables.less
+$dk-gray-fade-color1: rgba(231,231,231,1);
+$dk-gray-fade-color2: rgba(231,231,231,0);
+$lt-gray-fade-color1: rgba(231,231,231,0.8);
+$lt-gray-fade-color2: rgba(255,255,255,0.8);
+$form-button-color: rgb(237,237,237);
+
+@mixin fade-background($color1, $color2) {
+  background: -webkit-linear-gradient($color1, $color2);
+  background:    -moz-linear-gradient($color1, $color2);
+  background:      -o-linear-gradient($color1, $color2);
+  background:         linear-gradient($color1, $color2);
+}
+
+@mixin add-transition($property, $duration, $timing-func, $delay) {
+  -webkit-transition: $property $duration $timing-func $delay;
+  -moz-transition:    $property $duration $timing-func $delay;
+  -o-transition:      $property $duration $timing-func $delay;
+  transition:         $property $duration $timing-func $delay;
+}
+
+@mixin add-animation($anim-name, $duration, $timing-func, $delay, $iteration, $direction, $fill-mode, $play-state) {
+  -webkit-animation: $anim-name $duration $timing-func $delay $iteration $direction $fill-mode $play-state;
+  -moz-animation:    $anim-name $duration $timing-func $delay $iteration $direction $fill-mode $play-state;
+  -o-animation:      $anim-name $duration $timing-func $delay $iteration $direction $fill-mode $play-state;
+  animation:         $anim-name $duration $timing-func $delay $iteration $direction $fill-mode $play-state;
+}
+
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+    background: url(../images/bg-overlay.png), rgb(154,154,154) url(../images/stone-bg.jpg) no-repeat top left fixed;
+    background-size: cover;
+}
+
+.modal-body {
+  font-size: 1.5em !important;
+}
+
+.fixed-nav-holder {
+  position: fixed;
+  z-index: 99;
+  width: 100% !important;
+}
+
+.navbar {
+  margin-bottom: 0 !important;
+}
+
+nav {
+  border-radius: 0 !important;
+  a {
+    font-size: 2em;
+  }
+}
+
+.undernav {
+  margin-top: 5.24em;
+}
+
+.dark-fade {
+  @include fade-background($dk-gray-fade-color1, $dk-gray-fade-color2);
+}
+
+.input-group {
+  padding-top: 15px !important;
+}
+
+#search-group {
+  padding: 0 !important;
+}
+
+.form-action {
+  margin-top: 15px !important;
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-out-anim {
+  @include add-animation(fadeout, 0.2s, ease-in, 0s, 1, normal, both, running);
+}
+
+.fade-in-anim {
+  @include add-animation(fadein, 0.2s, ease-in, 0s, 1, normal, both, running);
+}
+
+.full-transparent {
+  opacity: 0;
+}
+
+section {
+  @include fade-background($lt-gray-fade-color1, $lt-gray-fade-color2);
+  @include add-transition(box-shadow, 0.1s, ease, 0s);
+  @include add-transition(border, 0.1s, ease, 0s);
+  border-bottom: 1px solid $lt-gray-fade-color2;
+  .btn {
+    @include add-transition(box-shadow, 0.1s, ease, 0s);
+  }
+  &:hover {
+    box-shadow: inset 2px 2px 2px rgba(10,10,10,0.3);
+    border-bottom: 1px solid $accent-color;
+    .btn {
+      box-shadow: 2px 2px 2px rgba(10,10,10,0.3);
+    }
+  }
+  h1 {
+    font-size: 3em;
+  }
+  li {
+    font-size: 1.5em;
+  }
+}
+
+.btn-default,
+.form-control,
+.input-group-addon {
+  border-color: $accent-color !important;
+}
+
+.li-divider {
+  border-right: 1px solid $accent-color;
+}
+
+.song-btn {
+  margin-top: 0.5em;
+  span {
+    top: 0.1em;
+  }
+}
+
+a, .btn {
+  @include add-transition(color, 0.1s, ease, 0s);
+  &:hover {
+    color: $accent-color !important;
+  }
+}
+
+.modal-body em {
+  color: $accent-color;
+}
+
+.btn-danger,
+.btn-success {
+  color: $primary-color !important;
+  &:hover {
+    color: white !important;
+  }
+}
+
+.btn {
+  background-color: $form-button-color;
+}
+
+.dropdown-toggle {
+  border-radius: 0px;
+  border-right: none;
+}
+
+.content {
+  padding-bottom: 50px;
+}
