@@ -15,6 +15,10 @@ body {
 .navbar {
   margin-bottom: 0 !important; }
 
+#search-addon,
+.song-area {
+  cursor: pointer; }
+
 nav {
   border-radius: 0 !important; }
   nav a {
@@ -37,6 +41,11 @@ nav {
 
 .form-action {
   margin-top: 15px !important; }
+
+.song-detail {
+  text-align: center; }
+  .song-detail p {
+    font-size: 2em; }
 
 @keyframes fadeout {
   from {

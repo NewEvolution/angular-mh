@@ -49,6 +49,11 @@ body {
   margin-bottom: 0 !important;
 }
 
+#search-addon,
+.song-area {
+  cursor: pointer;
+}
+
 nav {
   border-radius: 0 !important;
   a {
@@ -74,6 +79,13 @@ nav {
 
 .form-action {
   margin-top: 15px !important;
+}
+
+.song-detail {
+  text-align: center;
+  p {
+    font-size: 2em;
+  }
 }
 
 @keyframes fadeout {

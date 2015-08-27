@@ -1,5 +1,9 @@
-app.controller("AddCtrl", function($scope) {
+app.controller("AddCtrl", ["$scope", "song-storage", function($scope, songStorage) {
 
+  $("#add-music").addClass("active");
+  $("#view-music").removeClass("active");
+  $("#search-group").addClass("invisible");
+  $scope.songs = [];
   $scope.songToAdd = {
     id: $scope.songs.length,
     title: "",
@@ -7,6 +11,14 @@ app.controller("AddCtrl", function($scope) {
     album: "",
     genre: "",
   };
+
+  songStorage.then(function(returnedData) {
+    for (var i = 0; i < returnedData.songs.length; i++) {
+      $scope.songs.push(returnedData.songs[i]);
+    }
+  }, function(error) {
+    console.log(error);
+  });
 
   $scope.selectDropdown = function(clickedElement, type) {
     if(type === "artist") {
@@ -40,4 +52,4 @@ app.controller("AddCtrl", function($scope) {
     }
   };
 
-});
+}]);

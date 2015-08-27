@@ -1,7 +1,12 @@
-app.controller("SongsCtrl", function($scope, $q) {
+app.controller("SongsCtrl", [ "$scope", "$q", "song-storage", function($scope, $q, songStorage) {
 
-  $scope.songs = "";
-  $scope.songSelector = "";
+  $("#view-music").addClass("active");
+  $("#add-music").removeClass("active");
+  $("#search-group").removeClass("invisible");
+  $scope.songs = [];
+  $scope.artistSelector = "";
+  $scope.albumSelector = "";
+  $scope.searchQuery = "";
 
   $scope.removeSong = function(songToRemove) {
     var songIndex = $scope.songs.indexOf(songToRemove);
@@ -10,53 +15,25 @@ app.controller("SongsCtrl", function($scope, $q) {
     }
   };
 
-  function getSongs() {
-    return $q(function(resolve, reject) {
-      $.ajax({
-        url: "./data/songlist.json"
-      }).done(function(data) {
-        resolve(data);
-      }, function(xhr, status, error) {
-        reject(error);
-      });
-    });
-  }
-
-  function getMoreSongs() {
-    return $q(function(resolve, reject) {
-      $.ajax({
-        url: "./data/moresongs.json"
-      }).done(function(data) {
-        resolve(data);
-      }, function(xhr, status, error) {
-        reject(error);
-      });
-    });
-  }
-
-  $scope.removeSong = function(songToRemove) {
-    var songIndex = $scope.songs.indexOf(songToRemove);
-    if (songIndex >= 0) {
-      $scope.songs.splice(songIndex, 1);
-    }
+  $scope.resetSearch = function() {
+    $scope.searchQuery = "";
   };
 
   $scope.getDetails = function(sentItem) {
-    console.log("I am", sentItem);
+    window.location = "#" + sentItem.id;
   };
 
-  getSongs().then(function(resolvedData) {
-    $scope.songs = resolvedData.songs;
-  }, function(error) {
-    console.log("error", error);
-  });
+  $scope.resetFilter = function() {
+    $scope.artistSelector = "";
+    $scope.albumSelector = "";
+  };
 
-  getMoreSongs().then(function(resolvedData) {
-    for(var i=0; i<resolvedData.songs.length; i++) {
-      $scope.songs.push(resolvedData.songs[i]);
+  songStorage.then(function(returnedData) {
+    for (var i = 0; i < returnedData.songs.length; i++) {
+      $scope.songs.push(returnedData.songs[i]);
     }
   }, function(error) {
-    console.log("error", error);
+    console.log(error);
   });
 
-});
+}]);
