@@ -1,4 +1,4 @@
-var app = angular.module("SongsApp", ["ngRoute", "angular.filter"]);
+var app = angular.module("SongsApp", ["ngRoute", "angular.filter", "firebase"]);
 
 app.config(['$routeProvider',
   function($routeProvider) {
