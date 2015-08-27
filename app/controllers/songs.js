@@ -41,6 +41,10 @@ app.controller("SongsCtrl", function($scope, $q) {
     }
   };
 
+  $scope.getDetails = function(sentItem) {
+    console.log("I am", sentItem);
+  };
+
   getSongs().then(function(resolvedData) {
     $scope.songs = resolvedData.songs;
   }, function(error) {

@@ -10,7 +10,7 @@
       <span class='glyphicon glyphicon-trash' aria-hidden='true'></span>
     </button>
   </div>
-  <div class='col-xs-11 song-btn'>
+  <div class='col-xs-11' ng-click="getDetails(item)">
     <h1>{{item.title|capitalize}}</h1>
     <ul class='list-inline'>
       <li class="artist-label">Artist: <em>{{item.artist|capitalize}}</em></li>

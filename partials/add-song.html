@@ -1,0 +1,38 @@
+<form class="form-group" id="add-form" action="#" method="POST">
+  <div class="input-group">
+    <span class="input-group-addon">Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <input type="text" class="form-control add-input" name="title" id="title" placeholder="Enter Song Title" ng-model="songToAdd.title">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Artist:&nbsp;&nbsp;</span>
+    <div class="input-group-btn">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+      </button>
+      <ul id="add_artist-dropdown" class="dropdown-menu">
+        <li ng-repeat="item in songs | unique: 'artist' | filter: songToAdd.album"><a class="artist-dr-item" href="" ng-click="selectDropdown(item, 'artist')">{{item.artist}}</a></li>
+      </ul>
+    </div>
+    <input type="text" class="form-control add-input" name="artist" id="artist" placeholder="Enter Artist Name" ng-model="songToAdd.artist">
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon">Album:</span>
+    <div class="input-group-btn">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+      </button>
+      <ul id="add_album-dropdown" class="dropdown-menu">
+        <li ng-repeat="item in songs | unique: 'album' | filter: songToAdd.artist"><a class="album-dr-item" href="" ng-click="selectDropdown(item, 'album')">{{item.album}}</a></li>
+      </ul>
+    </div>
+    <input type="text" class="form-control add-input" name="album" id="album" placeholder="Enter Album Name" ng-model="songToAdd.album">
+  </div>
+
+  <div id="genre">
+    <!-- Populate via genreradio*.hbs -->
+  </div>
+  <input class="btn btn-default form-action" id="add-submit" type="submit" value="Submit" ng-click="addSong()">
+  <input class="btn btn-default form-action full-transparent" id="add-reset" type="submit" value="Reset">
+</form>
