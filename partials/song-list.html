@@ -82,7 +82,7 @@
 <!-- Right content area -->
 <div class="col-sm-7 col-md-6 right-content">
   <div class="content">
-    <section class='row song-section' ng-repeat="item in songs | filter:searchQuery | filter: artistSelector.artist | filter: albumSelector.album">
+    <section class='row song-section' ng-repeat="item in songs | filter:$parent.searchQuery | filter:artistSelector.artist | filter:albumSelector.album">
       <div class='col-xs-1'>
         <button class='hide-btn song-btn btn btn-default btn-xs' ng-click="removeSong(item)">
           <span class='glyphicon glyphicon-remove' aria-hidden='true'></span>
