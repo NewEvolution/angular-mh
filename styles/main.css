@@ -109,10 +109,12 @@ section {
 .li-divider {
   border-right: 1px solid #009090; }
 
-.song-btn {
-  margin-top: 0.5em; }
-  .song-btn span {
-    top: 0.1em; }
+.song-buttons {
+  margin: auto; }
+  .song-buttons .song-btn {
+    margin-top: 0.5em; }
+    .song-buttons .song-btn span {
+      top: 0.1em; }
 
 a, .btn {
   -webkit-transition: color 0.1s ease 0s;

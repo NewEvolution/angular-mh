@@ -1,16 +1,10 @@
-app.controller("DetailCtrl", ["$scope", "$routeParams", "song-storage", function($scope, $routeParams, songStorage) {
+app.controller("DetailCtrl", function($scope, $routeParams, $firebaseObject) {
 
-  $scope.songs = [];
+  $("#add-music").addClass("active");
+  $("#view-music").removeClass("active");
+  $("#search-group").addClass("invisible");
 
-  songStorage.then(function(returnedData) {
-    for (var i = 0; i < returnedData.songs.length; i++) {
-      $scope.songs.push(returnedData.songs[i]);
-    }
-    $scope.selectedSong = $scope.songs.filter(function(item) {
-      return item.id === parseInt($routeParams.songid);
-    })[0];
-  }, function(error) {
-    console.log(error);
-  });
+  var ref = new Firebase("https://sizzling-torch-4887.firebaseio.com/songs/" + $routeParams.songid);
+  $scope.selectedSong = $firebaseObject(ref);
 
-}]);
+});

@@ -1,9 +1,11 @@
-app.controller("AddCtrl", ["$scope", "song-storage", function($scope, songStorage) {
+app.controller("AddCtrl", function($scope, $firebaseArray) {
+
+  var ref = new Firebase("https://sizzling-torch-4887.firebaseio.com/songs");
+  $scope.songs = $firebaseArray(ref);
 
   $("#add-music").addClass("active");
   $("#view-music").removeClass("active");
   $("#search-group").addClass("invisible");
-  $scope.songs = [];
   $scope.songToAdd = {
     id: $scope.songs.length,
     title: "",
@@ -11,14 +13,6 @@ app.controller("AddCtrl", ["$scope", "song-storage", function($scope, songStorag
     album: "",
     genre: "",
   };
-
-  songStorage.then(function(returnedData) {
-    for (var i = 0; i < returnedData.songs.length; i++) {
-      $scope.songs.push(returnedData.songs[i]);
-    }
-  }, function(error) {
-    console.log(error);
-  });
 
   $scope.selectDropdown = function(clickedElement, type) {
     if(type === "artist") {
@@ -45,11 +39,11 @@ app.controller("AddCtrl", ["$scope", "song-storage", function($scope, songStorag
       }
     }
     if(validCount === 4) {
-      $scope.songs.push($scope.songToAdd);
+      $scope.songs.$add(songToAdd);
       for(var alsoKey in $scope.songToAdd) {
         $scope.songToAdd[alsoKey] = "";
       }
     }
   };
 
-}]);
+});

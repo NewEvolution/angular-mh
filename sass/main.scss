@@ -151,10 +151,13 @@ section {
   border-right: 1px solid $accent-color;
 }
 
-.song-btn {
-  margin-top: 0.5em;
-  span {
-    top: 0.1em;
+.song-buttons {
+  margin: auto;
+  .song-btn {
+    margin-top: 0.5em;
+    span {
+      top: 0.1em;
+    }
   }
 }
 

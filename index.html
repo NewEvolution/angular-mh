@@ -28,66 +28,6 @@
     </div>
     <!-- End invalid modal -->
 
-    <!-- Start delete modal -->
-    <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="delete-modal-label">
-      <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="delete-modal-label">Confirm Song Deletion</h4>
-          </div>
-          <div class="modal-body">
-            The song <em id="delete-title"></em> by <em id="delete-artist"></em> will be permanently deleted from the database.
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-danger" id="confirm-delete" data-dismiss="modal">Confirm Delete</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End delete modal -->
-
-    <!-- Start edit modal -->
-    <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="edit-modal-label">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="edit-modal-label">Edit Song Information</h4>
-          </div>
-          <div class="modal-body">
-            <form class="form-group" id="edit-form" action="#" method="POST">
-              <div class="input-group">
-                <span class="input-group-addon">Title:&nbsp;&nbsp;&nbsp;</span>
-                <input type="text" class="form-control" name="title" id="edit-title">
-              </div>
-
-              <div class="input-group">
-                <span class="input-group-addon">Artist:&nbsp;&nbsp;</span>
-                <input type="text" class="form-control" name="artist" id="edit-artist">
-              </div>
-
-              <div class="input-group">
-                <span class="input-group-addon">Album:</span>
-                <input type="text" class="form-control" name="album" id="edit-album">
-              </div>
-
-              <div class="input-group">
-                <span class="input-group-addon">Genre:</span>
-                <input type="text" class="form-control" name="genre" id="edit-genre">
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-success" id="confirm-edit" data-dismiss="modal">Confirm Edit</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End edit modal -->
-
     <!-- Main container div -->
     <div class="container-fluid">
 
@@ -134,7 +74,6 @@
     <script src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="app/app.js"></script>
     <script src="app/filters/capitalize.js"></script>
-    <script src="app/factories/song-storage.js"></script>
     <script src="app/controllers/songs.js"></script>
     <script src="app/controllers/add.js"></script>
     <script src="app/controllers/detail.js"></script>
