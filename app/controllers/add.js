@@ -1,25 +1,25 @@
-app.controller("AddCtrl", function($scope, $firebaseArray) {
+app.controller("AddCtrl", function($firebaseArray) {
 
   var ref = new Firebase("https://sizzling-torch-4887.firebaseio.com/songs");
-  $scope.songs = $firebaseArray(ref);
+  this.songs = $firebaseArray(ref);
 
   $("#add-music").addClass("active");
   $("#view-music").removeClass("active");
   $("#search-group").addClass("invisible");
-  $scope.songToAdd = {
-    id: $scope.songs.length,
+  this.songToAdd = {
+    id: this.songs.length,
     title: "",
     artist: "",
     album: "",
     genre: "",
   };
 
-  $scope.selectDropdown = function(clickedElement, type) {
+  this.selectDropdown = function(clickedElement, type) {
     if(type === "artist") {
-      $scope.songToAdd.artist = clickedElement.artist;
+      this.songToAdd.artist = clickedElement.artist;
     }
     if(type === "album") {
-      $scope.songToAdd.album = clickedElement.album;
+      this.songToAdd.album = clickedElement.album;
     }
   };
 
@@ -27,10 +27,10 @@ app.controller("AddCtrl", function($scope, $firebaseArray) {
     e.preventDefault();
   });
 
-  $scope.addSong = function() {
+  this.addSong = function() {
     var validCount = 0;
-    for(var key in $scope.songToAdd) {
-      if($scope.songToAdd[key] === "") {
+    for(var key in this.songToAdd) {
+      if(this.songToAdd[key] === "") {
         alert("The " + key + " field cannot be left blank.");
         validCount = 0;
         break;
@@ -39,9 +39,9 @@ app.controller("AddCtrl", function($scope, $firebaseArray) {
       }
     }
     if(validCount === 4) {
-      $scope.songs.$add(songToAdd);
-      for(var alsoKey in $scope.songToAdd) {
-        $scope.songToAdd[alsoKey] = "";
+      this.songs.$add(songToAdd);
+      for(var alsoKey in this.songToAdd) {
+        this.songToAdd[alsoKey] = "";
       }
     }
   };

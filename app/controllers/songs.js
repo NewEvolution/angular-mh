@@ -1,19 +1,19 @@
-app.controller("SongsCtrl",  function($scope, $q, $firebaseArray) {
+app.controller("SongsCtrl",  function($q, $firebaseArray) {
 
   var ref = new Firebase("https://sizzling-torch-4887.firebaseio.com/songs");
-  $scope.songs = $firebaseArray(ref);
+  this.songs = $firebaseArray(ref);
 
   $("#view-music").addClass("active");
   $("#add-music").removeClass("active");
   $("#search-group").removeClass("invisible");
-  $scope.artistSelector = "";
-  $scope.albumSelector = "";
-  $scope.searchQuery = "";
+  this.artistSelector = "";
+  this.albumSelector = "";
+  this.searchQuery = "";
 
-  $scope.hideSong = function(songToHide) {
-    var songIndex = $scope.songs.indexOf(songToHide);
+  this.hideSong = function(songToHide) {
+    var songIndex = this.songs.indexOf(songToHide);
     if (songIndex >= 0) {
-      $scope.songs.splice(songIndex, 1);
+      this.songs.splice(songIndex, 1);
     }
   };
 
@@ -28,44 +28,44 @@ app.controller("SongsCtrl",  function($scope, $q, $firebaseArray) {
     });
   });
 
-  $scope.elementReveal = function(elementToReveal) {
+  this.elementReveal = function(elementToReveal) {
     
   };
 
-  $scope.editSong = function(songToEdit) {
-    $scope.toEdit = songToEdit;
+  this.editSong = function(songToEdit) {
+    this.toEdit = songToEdit;
   };
 
-  $scope.confirmEdit = function() {
-    var songIndex = $scope.songs.indexOf($scope.toEdit);
+  this.confirmEdit = function() {
+    var songIndex = this.songs.indexOf(this.toEdit);
     if (songIndex >= 0) {
-      $scope.songs[songIndex] = toEdit;
-      $scope.songs.$save();
+      this.songs[songIndex] = toEdit;
+      this.songs.$save();
     }
   };
 
-  $scope.deleteSong = function(songToDelete) {
-    $scope.toDelete = songToDelete;
+  this.deleteSong = function(songToDelete) {
+    this.toDelete = songToDelete;
   };
 
-  $scope.confirmDelete = function() {
-    var songIndex = $scope.songs.indexOf($scope.toDelete);
+  this.confirmDelete = function() {
+    var songIndex = this.songs.indexOf(this.toDelete);
     if (songIndex >= 0) {
-      $scope.songs.$remove(songIndex);
+      this.songs.$remove(songIndex);
     }
   };
 
-  $scope.resetSearch = function() {
-    $scope.searchQuery = "";
+  this.resetSearch = function() {
+    this.searchQuery = "";
   };
 
-  $scope.getDetails = function(sentItem) {
+  this.getDetails = function(sentItem) {
     window.location = "#" + sentItem.$id;
   };
 
-  $scope.resetFilter = function() {
-    $scope.artistSelector = "";
-    $scope.albumSelector = "";
+  this.resetFilter = function() {
+    this.artistSelector = "";
+    this.albumSelector = "";
     $(".song-section").slideDown();
     $(".song-section").addClass("fade-in-anim").on("animationend oAnimationEnd webkitAnimationEnd msAnimationEnd", function(e) {
       if(e.originalEvent.animationName === "fadein") {
