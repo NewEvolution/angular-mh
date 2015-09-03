@@ -11,11 +11,12 @@ require.config({
     es6: "../lib/bower_components/requirejs-babel/es6"
   },
   shim: {
+    "angularfire" : ["angular", "firebase"],
+    "firebase": {"exports" : "Firebase"},
     "angular" : {"exports" : "angular"},
-    "angularfire" : ["angular"],
+    "angularFilter" : ["angular"],
     "angularRoute": ["angular"],
-    "bootstrap": ["jquery"],
-    "firebase": {"exports" : "Firebase"}
+    "bootstrap": ["jquery"]
   },
   priority: [
     "angular"
@@ -26,8 +27,8 @@ require([
   "angular",
   "app"
   ], function(angular, app) {
-    var $html = angular.element(document.getElementsByTagName("html")[0]);
-    angular.element().ready(function() {
+    var $html = angular.element(document.getElementsByTagName("body")[0]);
+    angular.element($html).ready(function() {
       // bootstrap the app manually
       angular.bootstrap(document, ["SongsApp"]);
     });

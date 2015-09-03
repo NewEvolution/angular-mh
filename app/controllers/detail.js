@@ -3,13 +3,14 @@ define([
   "angularRoute"
 ], function(angular) {
   angular.module("SongsApp.detail", ["ngRoute"])
-  .config(["$routeProvider", "$routeParams", "$firebaseObject", function($routeProvider, $routeParams, $firebaseObject) {
+  .config(["$routeProvider", function($routeProvider) {
     $routeProvider.when("/:songid", {
       templateUrl: "../paritals/song-detail.html",
-      controller: "DetailCtrl"
+      controller: "DetailCtrl",
+      controllerAs: "detail"
     });
   }])
-  .controller("DetailCtrl", [function() {
+  .controller("DetailCtrl", ["$routeParams", "$firebaseObject", function($routeParams, $firebaseObject) {
 
     $("#add-music").addClass("active");
     $("#view-music").removeClass("active");

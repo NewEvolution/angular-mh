@@ -21,7 +21,7 @@
 
     <div class="input-group">
       <span class="input-group-addon">Album:</span>
-      <select class="form-control filter-input" name="album" id="album" ng-model="songs.albumSelector" ng-options="item.album for item in songs.songs | unique:'album'">
+      <select class="form-control filter-input" name="album" id="album" ng-model="songs.albumSelector" ng-options="item.album for item in songs.songs | unique:'album' | filter: {artist: songs.artistSelector.artist}">
         <option>--</option>
       </select>
     </div>

@@ -1,17 +1,19 @@
 define([
   "angular",
-  "angularRoute"
+  "firebase"
 ], function(angular) {
   angular.module("SongsApp.songs", ["ngRoute"])
-  .config(["$q", "$firebaseArray", "$routeProvider", function($q, $firebaseArray, $routeProvider) {
+  .config(["$routeProvider", function($routeProvider) {
     $routeProvider.when("/", {
       templateUrl: "../partials/song-list.html",
-      controller: "SongsCtrl"
+      controller: "SongsCtrl",
+      controllerAs: "songs"
     });
   }])
-  .controller("SongsCtrl", [function() {
+  .controller("SongsCtrl", ["$q", "$firebaseArray", function($q, $firebaseArray) {
     var ref = new Firebase("https://sizzling-torch-4887.firebaseio.com/songs");
     this.songs = $firebaseArray(ref);
+    console.log(this.songs);
 
     $("#view-music").addClass("active");
     $("#add-music").removeClass("active");
@@ -19,13 +21,6 @@ define([
     this.artistSelector = "";
     this.albumSelector = "";
     this.searchQuery = "";
-
-    this.hideSong = function(songToHide) {
-      var songIndex = this.songs.indexOf(songToHide);
-      if (songIndex >= 0) {
-        this.songs.splice(songIndex, 1);
-      }
-    };
 
     $(".content").on("click", ".hide-btn", function() {
       $(this).parents(".song-section").removeClass("fade-in-anim");

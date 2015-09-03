@@ -4,15 +4,17 @@ define([
   "angularRoute"
 ], function($, angular) {
   angular.module("SongsApp.add", ["ngRoute"])
-  .config(["$routeProvider", "$firebaseArray", function($routeProvider, $firebaseArray) {
+  .config(["$routeProvider", function($routeProvider) {
     $routeProvider.when("/add", {
       templateUrl: "../partials/add-song.html",
-      controller: "AddCtrl"
+      controller: "AddCtrl",
+      controllerAs: "add"
     });
   }])
-  .controller("AddCtrl", [function() {
+  .controller("AddCtrl", ["$firebaseArray", function($firebaseArray) {
     var ref = new Firebase("https://sizzling-torch-4887.firebaseio.com/songs");
     this.songs = $firebaseArray(ref);
+    console.log(this.songs);
 
     $("#add-music").addClass("active");
     $("#view-music").removeClass("active");
