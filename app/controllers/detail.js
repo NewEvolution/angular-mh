@@ -1,11 +1,12 @@
 define([
   "angular",
-  "angularRoute"
+  "angularRoute",
+  "bootstrap"
 ], function(angular) {
   angular.module("SongsApp.detail", ["ngRoute"])
   .config(["$routeProvider", function($routeProvider) {
     $routeProvider.when("/:songid", {
-      templateUrl: "../paritals/song-detail.html",
+      templateUrl: "../partials/song-detail.html",
       controller: "DetailCtrl",
       controllerAs: "detail"
     });

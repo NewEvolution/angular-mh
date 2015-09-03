@@ -1,6 +1,7 @@
 define([
   "angular",
-  "firebase"
+  "firebase",
+  "bootstrap"
 ], function(angular) {
   angular.module("SongsApp.songs", ["ngRoute"])
   .config(["$routeProvider", function($routeProvider) {

@@ -1,7 +1,7 @@
 define([
   "jquery",
   "angular",
-  "angularRoute"
+  "bootstrap"
 ], function($, angular) {
   angular.module("SongsApp.add", ["ngRoute"])
   .config(["$routeProvider", function($routeProvider) {

@@ -3,11 +3,12 @@ define([
   "angularRoute",
   "angularFilter",
   "angularfire",
+  "bootstrap",
   "controllers/add",
   "controllers/songs",
   "controllers/detail",
   // "directives/songs-directive"
-], function(angular, angularRoute, filter, angularfire, songs, add, detail, songListDirective) {
+], function(angular, angularRoute, filter, bootstrap, angularfire, songs, add, detail) {
   // Declare app level module which depends on views, and components
   return angular.module("SongsApp", [
     "ngRoute",
