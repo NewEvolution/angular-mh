@@ -1,8 +1,10 @@
 define([
   "angular",
-  "angularRoute"
+  "firebase",
+  "bootstrap"
 ], function(angular) {
-  angular.directive("songListDirective", function() {
+  angular.module("SongsApp.songs_directive", [])
+  .directive("songListDirective", function() {
     return {
       restrict: "E",
       templateUrl: "../partials/eachSong.html"

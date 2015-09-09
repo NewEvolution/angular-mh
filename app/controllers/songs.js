@@ -14,7 +14,6 @@ define([
   .controller("SongsCtrl", ["$q", "$firebaseArray", function($q, $firebaseArray) {
     var ref = new Firebase("https://sizzling-torch-4887.firebaseio.com/songs");
     this.songs = $firebaseArray(ref);
-    console.log(this.songs);
 
     $("#view-music").addClass("active");
     $("#add-music").removeClass("active");

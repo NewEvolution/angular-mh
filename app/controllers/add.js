@@ -14,7 +14,6 @@ define([
   .controller("AddCtrl", ["$firebaseArray", function($firebaseArray) {
     var ref = new Firebase("https://sizzling-torch-4887.firebaseio.com/songs");
     this.songs = $firebaseArray(ref);
-    console.log(this.songs);
 
     $("#add-music").addClass("active");
     $("#view-music").removeClass("active");
@@ -34,14 +33,13 @@ define([
       if(type === "album") {
         this.songToAdd.album = clickedElement.album;
       }
+      if(type === "genre") {
+        this.songToAdd.genre = clickedElement.genre;
+      }
     };
 
-    $("#add-submit").click(function(e) {
-      e.preventDefault();
-    });
-
     this.addSong = function() {
-      var validCount = 0;
+      var validCount = 1;
       for(var key in this.songToAdd) {
         if(this.songToAdd[key] === "") {
           alert("The " + key + " field cannot be left blank.");
@@ -51,7 +49,8 @@ define([
           validCount++;
         }
       }
-      if(validCount === 4) {
+      if(validCount === 5) {
+        console.log("Ding!");
         this.songs.$add(songToAdd);
         for(var alsoKey in this.songToAdd) {
           this.songToAdd[alsoKey] = "";
