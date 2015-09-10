@@ -43,8 +43,6 @@ define([
     };
 
     this.addSong = function() {
-      console.log("Initial ding");
-      console.log("this.songToAdd", this.songToAdd);
       var validCount = 0;
       for(var key in this.songToAdd) {
         if(this.songToAdd[key] === "") {
@@ -56,7 +54,6 @@ define([
         }
       }
       if(validCount === 5) {
-        console.log("Inner ding!");
         this.songs.$add(this.songToAdd);
         for(var alsoKey in this.songToAdd) {
           this.songToAdd[alsoKey] = "";
