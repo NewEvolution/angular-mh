@@ -19,12 +19,16 @@ define([
     $("#view-music").removeClass("active");
     $("#search-group").addClass("invisible");
     this.songToAdd = {
-      id: this.songs.length,
+      id: "",
       title: "",
       artist: "",
       album: "",
       genre: "",
     };
+
+    this.songs.$loaded().then(angular.bind(this, function(data) {
+      this.songToAdd.id = data.length;
+    }));
 
     this.selectDropdown = function(clickedElement, type) {
       if(type === "artist") {
@@ -39,7 +43,9 @@ define([
     };
 
     this.addSong = function() {
-      var validCount = 1;
+      console.log("Initial ding");
+      console.log("this.songToAdd", this.songToAdd);
+      var validCount = 0;
       for(var key in this.songToAdd) {
         if(this.songToAdd[key] === "") {
           alert("The " + key + " field cannot be left blank.");
@@ -50,8 +56,8 @@ define([
         }
       }
       if(validCount === 5) {
-        console.log("Ding!");
-        this.songs.$add(songToAdd);
+        console.log("Inner ding!");
+        this.songs.$add(this.songToAdd);
         for(var alsoKey in this.songToAdd) {
           this.songToAdd[alsoKey] = "";
         }
