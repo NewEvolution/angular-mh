@@ -29,7 +29,6 @@ require([
   ], function(angular, app) {
     var $appTarget = angular.element(document.getElementsByTagName("body")[0]);
     angular.element($appTarget).ready(function() {
-      // bootstrap the app manually
       angular.bootstrap(document, ["SongsApp"]);
     });
   }
