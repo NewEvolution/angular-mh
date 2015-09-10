@@ -3,7 +3,7 @@ define([
   "firebase",
   "bootstrap"
 ], function(angular) {
-  angular.module("SongsApp.songs_directive", [])
+  angular.module("SongsApp.songsDirective", [])
   .directive("songListDirective", function() {
     return {
       restrict: "E",
