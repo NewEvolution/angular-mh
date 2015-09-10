@@ -1,4 +1,5 @@
 ({
+  baseUrl: "./app/",
   paths: {
     angularFilter: "../lib/bower_components/angular-filter/dist/angular-filter.min",
     angularfire: "../lib/bower_components/angularfire/dist/angularfire.min",
@@ -18,6 +19,6 @@
     "angularRoute": ["angular"],
     "bootstrap": ["jquery"]
   },
-  name: "main",
+  name: "app",
   out: "built.js"
 })
