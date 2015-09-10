@@ -42,11 +42,22 @@ define([
       }
     };
 
+    this.alertModal = function(missingField) {
+      this.aOrAn = "";
+      if(missingField.charAt(0) == "a") {
+        this.aOrAn = " an ";
+      } else {
+        this.aOrAn = " a ";
+      }
+      this.missingField = missingField;
+      $('#invalid-modal').modal('show');
+    };
+
     this.addSong = function() {
       var validCount = 0;
       for(var key in this.songToAdd) {
         if(this.songToAdd[key] === "") {
-          alert("The " + key + " field cannot be left blank.");
+          this.alertModal(key);
           validCount = 0;
           break;
         } else {
