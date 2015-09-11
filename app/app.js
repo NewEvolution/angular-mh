@@ -7,8 +7,9 @@ define([
   "controllers/add",
   "controllers/songs",
   "controllers/detail",
-  "directives/songs-directive"
-], function(angular, bootstrap, angularfire, angularRoute, filter, add, songs, detail, songsDirective) {
+  "filters/capitalize",
+  "directives/songs-directive",
+], function(angular, bootstrap, angularfire, angularRoute, filter, add, songs, detail, capitalizeFilter, songsDirective) {
   return angular.module("SongsApp", [
     "ngRoute",
     "firebase",
@@ -16,7 +17,8 @@ define([
     "angular.filter",
     "SongsApp.songs",
     "SongsApp.detail",
-    "SongsApp.songsDirective"
+    "SongsApp.songsDirective",
+    "SongsApp.capitalizeFilter"
   ]).
   config(["$routeProvider", function($routeProvider) {
     $routeProvider.otherwise({redirectTo: "/"});
