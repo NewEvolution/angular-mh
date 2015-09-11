@@ -1,7 +1,7 @@
 define([
   "angular",
-  "angularRoute",
-  "bootstrap"
+  "bootstrap",
+  "angularRoute"
 ], function(angular) {
   angular.module("SongsApp.detail", ["ngRoute"])
   .config(["$routeProvider", function($routeProvider) {
