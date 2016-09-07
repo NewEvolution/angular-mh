@@ -11,7 +11,7 @@ Allows for submission & viewing of songs with filters by album/artist/genre and 
 - Installation of http-server via _npm install -g http-server_
 - Installation of bower via _npm install -g bower_
 
-###Post Cloning Your Fork Locally:
+###Post Cloning:
 - Inside the _lib_ directory:
   - Run _npm install_
   - Run _bower install_
