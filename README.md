@@ -9,6 +9,7 @@ Allows for submission & viewing of songs with filters by album/artist/genre and 
 ###Requirements:
 - Node.js https://nodejs.org/en/
 - Installation of http-server via _npm install -g http-server_
+- Installation of bower via _npm install -g bower_
 
 ###Post Cloning Your Fork Locally:
 - Inside the _lib_ directory:
