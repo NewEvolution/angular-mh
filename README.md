@@ -17,8 +17,8 @@ Allows for submission & viewing of songs with filters by album/artist/genre and 
   - Run _bower install_
 - Inside the main repo directory:
  - Run _http-server_
- - Make note of the port number returned after running _http-server_
-- Navigate to http://localhost:[your-port-number]
+ - Make note of the URL returned after running _http-server_
+- Navigate to that URL in your browser of choice
 
 ###Usage:
 - Add Music menu option allows for adding of new songs to the database
