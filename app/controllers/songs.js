@@ -34,7 +34,7 @@ define([
     });
 
     this.elementReveal = function(elementToReveal) {
-      
+
     };
 
     this.editSong = function(songToEdit) {

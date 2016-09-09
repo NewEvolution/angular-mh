@@ -19,7 +19,7 @@ define([
 
     var ref = new Firebase("https://sizzling-torch-4887.firebaseio.com/songs/" + $routeParams.songid);
     this.selectedSong = $firebaseObject(ref);
-    
+
   }]);
 });
 
